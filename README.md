@@ -23,6 +23,10 @@ cp .env.example .env.local
 npm run dev
 ```
 
+## Cloud-based WebApp
+
+**Link** - https://niceinsurance-production.up.railway.app/
+
 ## Demo Credentials
 | Role | Email | Password |
 |---|---|---|
