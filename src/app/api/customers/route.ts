@@ -21,8 +21,8 @@ export async function GET(req: NextRequest) {
         (SELECT COUNT(*) FROM AI_AUTO_INSURANCE_POLICY WHERE customer_id = c.customer_id) as auto_policies
        FROM AI_CUSTOMER c
        WHERE c.first_name LIKE ? OR c.last_name LIKE ? OR c.email LIKE ? OR c.phone LIKE ?
-       ORDER BY c.customer_id DESC LIMIT ? OFFSET ?`,
-      [searchLike, searchLike, searchLike, searchLike, limit, offset]
+       ORDER BY c.customer_id DESC LIMIT ${limit} OFFSET ${offset}`,
+      [searchLike, searchLike, searchLike, searchLike]
     );
     const [countRows] = await pool.execute<RowDataPacket[]>(
       'SELECT COUNT(*) as total FROM AI_CUSTOMER WHERE first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR phone LIKE ?',
